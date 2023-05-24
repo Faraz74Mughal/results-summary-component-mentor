@@ -1,0 +1,268 @@
+@font-face {
+    font-family: Hanken Grotes;
+    src: url(./../assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+}
+
+@import url(https://fonts.google.com/specimen/Hanken+Grotesk);
+
+$lightRed: hsl(0, 100%, 67%);
+$orangeyYellow: hsl(39, 100%, 56%);
+$greenTeal: hsl(166, 100%, 37%);
+$cobaltBlue: hsl(234, 85%, 45%);
+$lightRedLight: hsl(0, 100%, 67%, .05);
+$orangeyYellowLight: hsl(39, 100%, 56%, .05);
+$greenTealLight: hsl(166, 100%, 37%, .05);
+$cobaltBlueLight: hsl(234, 85%, 45%, .05);
+
+/** Gradient */
+$lightSlateBlue: hsl(252, 100%, 67%);
+$lightRoyalBlue : hsl(241, 81%, 54%);
+$violetBlue: hsla(256, 72%, 46%, 1);
+$persianBlue: hsla(241, 72%, 46%, 0);
+
+$white: hsl(0, 0%, 100%);
+$paleBlue: hsl(221, 100%, 96%);
+$lightLavender: hsl(241, 100%, 89%);
+$lightLavenderLight: hsl(241, 100%, 89%, .65);
+$darkGrayBlue: hsl(224, 30%, 27%);
+$darkGrayBlueLight: hsl(224, 30%, 27%, .6);
+
+@mixin centerFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Hanken Grotes;
+}
+
+.main {
+    @include centerFlex;
+    min-height: 100vh;
+    // background-color: $paleBlue;
+
+    .box {
+        display: flex;
+        overflow: hidden;
+        border-radius: 20px;
+        background-color: $white;
+        width: 680px;
+        box-shadow: 15px 15px 20px $paleBlue ;
+
+        .l-side {
+            @include centerFlex;
+            flex-direction: column;
+            border-radius: 20px;
+            background: linear-gradient($lightSlateBlue, $lightRoyalBlue);
+            width: 50%;
+            padding: 40px;
+
+            .result-heading {
+                font-size: 1.5rem;
+                color: $lightLavender
+            }
+
+            .circle {
+                @include centerFlex();
+                flex-direction: column;
+                width: 200px;
+                height: 200px;
+                background: linear-gradient($violetBlue, $persianBlue);
+                border-radius: 50%;
+                margin: 30px 0px;
+
+                .obtain-marks {
+                    font-size: 4.5em;
+                    font-weight: 800;
+                    color: $white;
+                }
+
+                .total-marks {
+                    color: $lightLavenderLight;
+                    font-size: 18px;
+                }
+            }
+
+            .greet-heading {
+                color: $white;
+                font-size: 32px;
+            }
+
+            .description {
+                margin-top: 15px;
+                color: $lightLavender;
+                font-size: 18px;
+                text-align: center;
+                line-height: 22px;
+            }
+        }
+
+        .r-side {
+            width: 50%;
+            padding: 40px;
+
+            .summary-heading {
+                margin-bottom: 20px;
+                color: $darkGrayBlue;
+                font-size: 24px;
+            }
+
+            .info-bar-group {
+
+                .info-bar {
+                    @include centerFlex();
+                    justify-content: space-between;
+                    padding: 15px;
+                    font-size: 18px;
+                    margin: 15px 0px;
+                    border-radius: 10px;
+
+                    .info-bar-subject {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        font-weight: 600;
+                    }
+
+                    .info-bar-marks {
+                        .info-bar-obtain-marks {
+                            font-weight: 800;
+                            color: $darkGrayBlue;
+                        }
+
+                        .info-bar-total-marks {
+                            color: $darkGrayBlueLight;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+                .button {
+                    margin-top: 20px;
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 50px;
+                    background-color: $darkGrayBlue;
+                    color: $white;
+                    font-size: 18px;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: linear-gradient($lightSlateBlue, $lightRoyalBlue);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.memory {
+    color: $orangeyYellow;
+    background-color: $orangeyYellowLight;
+
+}
+
+.verbal {
+    color: $greenTeal;
+    background-color: $greenTealLight;
+}
+
+.visual {
+    color: $cobaltBlue;
+    background-color: $cobaltBlueLight;
+}
+
+.reaction {
+    color: $lightRed;
+    background-color: $lightRedLight;
+}
+
+/** Footer */
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/** Media Query */
+
+@media screen and (max-width:374px) {
+    .box {
+        flex-direction: column;
+        width: 100%;
+        overflow: visible !important;
+
+        .l-side {
+            border-top-right-radius: 0px !important;
+            border-top-left-radius: 0px !important;
+            padding: 50px !important;
+
+            .circle {
+                width: 150px !important;
+                height: 150px !important;
+                margin: 20px 0px !important;
+
+                .obtain-marks {
+                    font-size: 3.5rem !important;
+                }
+
+                .total-marks {
+                    font-size: 16px !important;
+                }
+
+            }
+
+            .result-heading {
+                font-size: 1.2rem !important;
+            }
+
+            .greet-heading {
+                font-size: 1.5rem !important;
+            }
+
+            .description {
+                font-size: 16px !important;
+            }
+        }
+
+        .r-side {
+            .summary-heading {
+                font-size: 1.2rem !important;
+            }
+
+            .info-bar-subject {
+                font-size: 1rem;
+            }
+
+            .info-bar-marks {
+                .info-bar-obtain-marks {
+                    font-size: 1rem;
+                }
+
+                .info-bar-total-marks {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .button {
+        font-size: 1rem !important;
+    }
+
+    .l-side,
+    .r-side {
+        width: 100% !important
+    }
+
+}
